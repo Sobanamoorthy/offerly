@@ -1,0 +1,79 @@
+bluecollar-project/
+├── backend/
+│   ├── config/
+│   ├── controllers/
+│   │   ├── adminController.js
+│   │   ├── authController.js
+│   │   ├── bookingController.js
+│   │   ├── communicationController.js
+│   │   ├── notificationController.js
+│   │   ├── reviewController.js
+│   │   ├── supportController.js
+│   │   └── workerController.js
+│   ├── middleware/
+│   │   ├── authMiddleware.js
+│   │   └── errorMiddleware.js
+│   ├── models/
+│   │   ├── Booking.js
+│   │   ├── CallLog.js
+│   │   ├── Category.js
+│   │   ├── Customer.js
+│   │   ├── OTP.js
+│   │   ├── Review.js
+│   │   ├── Support.js
+│   │   ├── User.js
+│   │   └── Worker.js
+│   ├── routes/
+│   │   ├── adminRoutes.js
+│   │   ├── authRoutes.js
+│   │   ├── bookingRoutes.js
+│   │   ├── communicationRoutes.js
+│   │   ├── customerRoutes.js
+│   │   ├── notificationRoutes.js
+│   │   ├── reviewRoutes.js
+│   │   ├── supportRoutes.js
+│   │   └── workerRoutes.js
+│   ├── scripts/
+│   │   ├── seedAdmin.js
+│   │   ├── seedAllWorkers.js
+│   │   └── seedWorkers.js
+│   ├── services/
+│   │   ├── communicationService.js
+│   │   ├── emailService.js
+│   │   ├── notificationService.js
+│   │   └── otpService.js
+│   ├── .env
+│   ├── .env.example
+│   ├── package.json
+│   └── server.js
+└── frontend/
+    ├── public/
+    │   ├── index.html
+    │   └── manifest.json
+    ├── src/
+    │   ├── components/
+    │   │   ├── BrandLayout.js
+    │   │   ├── CustomerTable.js
+    │   │   ├── JobList.js
+    │   │   ├── LanguageSwitcher.js
+    │   │   ├── ReviewForm.js
+    │   │   └── Sidebar.js
+    │   ├── context/
+    │   │   └── AuthContext.js
+    │   ├── pages/
+    │   │   ├── AdminDashboardPage.js
+    │   │   ├── AdminLogin.js
+    │   │   ├── BookingDetails.jsx
+    │   │   ├── BookingHistoryPage.js
+    │   │   ├── Dashboard.js
+    │   │   ├── Login.js
+    │   │   └── Register.js
+    │   ├── utils/
+    │   │   └── api.js
+    │   ├── App.css
+    │   ├── App.js
+    │   ├── index.css
+    │   └── index.js
+    ├── .env
+    ├── .gitignore
+    └── package.json
