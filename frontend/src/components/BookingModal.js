@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+
 import { useAuth } from "../context/AuthContext";
 import { X, Calendar, MapPin, ClipboardList, IndianRupee, Clock, AlertCircle } from 'lucide-react';
 
@@ -16,10 +16,8 @@ const BookingModal = ({ worker, onClose, onSuccess }) => {
     });
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
-    const { user } = useAuth();
-    const navigate = useNavigate();
-
-    const token = localStorage.getItem("token");
+    const {token} = useAuth();
+   
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
