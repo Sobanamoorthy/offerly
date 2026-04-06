@@ -109,7 +109,7 @@ export default function JobList() {
 
   const fetchBookings = useCallback(async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/bookings/worker", {
+      const res = await axios.get("https://offerly-ijbn.onrender.com/api/bookings/worker", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setBookings(res.data);
@@ -129,7 +129,7 @@ export default function JobList() {
         payload.otp = startOTP[id];
       }
 
-      await axios.put(`http://localhost:5000/api/bookings/${id}/status`, payload, {
+      await axios.put(`https://offerly-ijbn.onrender.com/api/bookings/${id}/status`, payload, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

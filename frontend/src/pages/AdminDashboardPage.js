@@ -28,8 +28,8 @@ export default function AdminDashboardPage() {
     try {
       const token = localStorage.getItem("token");
       const url = addModal === "worker"
-        ? "http://localhost:5000/api/admin/workers"
-        : "http://localhost:5000/api/admin/customers";
+        ? "https://offerly-ijbn.onrender.com/api/admin/workers"
+        : "https://offerly-ijbn.onrender.com/api/admin/customers";
 
       await axios.post(url, formData, {
         headers: { Authorization: `Bearer ${token}` }

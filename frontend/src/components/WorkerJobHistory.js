@@ -12,7 +12,7 @@ export default function WorkerJobHistory() {
 
     const fetchBookings = useCallback(async () => {
         try {
-            const res = await axios.get("http://localhost:5000/api/bookings/worker", { headers: { Authorization: `Bearer ${token}` } });
+            const res = await axios.get("https://offerly-ijbn.onrender.com/api/bookings/worker", { headers: { Authorization: `Bearer ${token}` } });
             setBookings(res.data);
         } catch (err) { console.error("Failed to fetch jobs:", err); }
     }, [token]);

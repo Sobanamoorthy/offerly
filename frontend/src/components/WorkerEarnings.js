@@ -22,7 +22,7 @@ export default function WorkerEarnings() {
 
     const fetchBookings = useCallback(async () => {
         try {
-            const res = await axios.get("http://localhost:5000/api/bookings/worker", {
+            const res = await axios.get("https://offerly-ijbn.onrender.com/api/bookings/worker", {
                 headers: { Authorization: `Bearer ${token}` }
             });
             const completed = res.data.filter(b => b.status === "completed");

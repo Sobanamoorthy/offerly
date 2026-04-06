@@ -20,7 +20,7 @@ const ReviewForm = ({ revieweeId, onReviewSubmit, job, onClose, onSuccess }) => 
             const fetchExistingReview = async () => {
                 setFetching(true);
                 try {
-                    const res = await axios.get(`http://localhost:5000/api/reviews/job/${job._id}`, {
+                    const res = await axios.get(`https://offerly-ijbn.onrender.com/api/reviews/job/${job._id}`, {
                         headers: { Authorization: `Bearer ${token}` }
                     });
                     if (res.data) {
@@ -47,7 +47,7 @@ const ReviewForm = ({ revieweeId, onReviewSubmit, job, onClose, onSuccess }) => 
         setLoading(true);
         try {
             const res = await axios.post(
-                "http://localhost:5000/api/reviews",
+                "https://offerly-ijbn.onrender.com/api/reviews",
                 {
                     revieweeId: targetUserId,
                     rating,

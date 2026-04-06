@@ -25,7 +25,7 @@ const FeedbackModal = ({ userId, workerName, onClose }) => {
     useEffect(() => {
         const fetchReviews = async () => {
             try {
-                const res = await axios.get(`http://localhost:5000/api/reviews/${userId}`);
+                const res = await axios.get(`https://offerly-ijbn.onrender.com/api/reviews/${userId}`);
                 setReviews(res.data);
             } catch (err) {
                 console.error("Error fetching reviews:", err);

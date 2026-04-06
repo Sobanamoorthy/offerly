@@ -18,7 +18,7 @@ export default function WorkerOverview({ onNavigate }) {
 
     const fetchOverview = useCallback(async () => {
         try {
-            const res = await axios.get("http://localhost:5000/api/bookings/worker", {
+            const res = await axios.get("https://offerly-ijbn.onrender.com/api/bookings/worker", {
                 headers: { Authorization: `Bearer ${token}` }
             });
             const bookings = res.data;
@@ -36,7 +36,7 @@ export default function WorkerOverview({ onNavigate }) {
             let rating = "0.0";
             try {
                 if (user?.id) {
-                    const profRes = await axios.get(`http://localhost:5000/api/workers/profile?userId=${user.id}`, { headers: { Authorization: `Bearer ${token}` } });
+                    const profRes = await axios.get(`https://offerly-ijbn.onrender.com/api/workers/profile?userId=${user.id}`, { headers: { Authorization: `Bearer ${token}` } });
                     rating = profRes.data?.averageRating?.toFixed(1) || "0.0";
                 }
             } catch (profileErr) {

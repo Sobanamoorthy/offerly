@@ -165,7 +165,7 @@ const AdminDashboard = () => {
 
     const fetchStats = useCallback(async () => {
         try {
-            const { data } = await axios.get("http://localhost:5000/api/admin/dashboard", {
+            const { data } = await axios.get("https://offerly-ijbn.onrender.com/api/admin/dashboard", {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setStats(data);
@@ -174,7 +174,7 @@ const AdminDashboard = () => {
 
     const fetchWorkers = useCallback(async () => {
         try {
-            const { data } = await axios.get("http://localhost:5000/api/admin/workers", {
+            const { data } = await axios.get("https://offerly-ijbn.onrender.com/api/admin/workers", {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setWorkers(data);
@@ -183,7 +183,7 @@ const AdminDashboard = () => {
 
     const fetchCustomers = useCallback(async () => {
         try {
-            const { data } = await axios.get("http://localhost:5000/api/admin/customers", {
+            const { data } = await axios.get("https://offerly-ijbn.onrender.com/api/admin/customers", {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setCustomers(data);
@@ -192,7 +192,7 @@ const AdminDashboard = () => {
 
     const fetchBookings = useCallback(async () => {
         try {
-            const { data } = await axios.get("http://localhost:5000/api/admin/booking-history", {
+            const { data } = await axios.get("https://offerly-ijbn.onrender.com/api/admin/booking-history", {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setBookings(data);
@@ -201,7 +201,7 @@ const AdminDashboard = () => {
 
     const fetchTickets = useCallback(async () => {
         try {
-            const { data } = await axios.get("http://localhost:5000/api/support/admin", {
+            const { data } = await axios.get("https://offerly-ijbn.onrender.com/api/support/admin", {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setTickets(data);
@@ -210,7 +210,7 @@ const AdminDashboard = () => {
 
     const fetchAdminNotifications = useCallback(async () => {
         try {
-            const { data } = await axios.get("http://localhost:5000/api/admin/notifications", {
+            const { data } = await axios.get("https://offerly-ijbn.onrender.com/api/admin/notifications", {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setAdminNotifications(data);
@@ -235,7 +235,7 @@ const AdminDashboard = () => {
 
     const handleVerify = async (id) => {
         try {
-            await axios.put(`http://localhost:5000/api/admin/workers/${id}/verify`, {}, {
+            await axios.put(`https://offerly-ijbn.onrender.com/api/admin/workers/${id}/verify`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             fetchWorkers(); fetchStats();
@@ -245,7 +245,7 @@ const AdminDashboard = () => {
     const handleDeleteWorker = async (id) => {
         if (!window.confirm("Are you sure?")) return;
         try {
-            await axios.delete(`http://localhost:5000/api/admin/workers/${id}`, {
+            await axios.delete(`https://offerly-ijbn.onrender.com/api/admin/workers/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             fetchWorkers(); fetchStats();
@@ -265,7 +265,7 @@ const AdminDashboard = () => {
     const handleUpdateWorker = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:5000/api/admin/workers/${editWorker._id}`, workerForm, {
+            await axios.put(`https://offerly-ijbn.onrender.com/api/admin/workers/${editWorker._id}`, workerForm, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setEditWorker(null); fetchWorkers();
@@ -274,7 +274,7 @@ const AdminDashboard = () => {
 
     const handleToggleCustomerStatus = async (id) => {
         try {
-            await axios.put(`http://localhost:5000/api/admin/customers/${id}/status`, {}, {
+            await axios.put(`https://offerly-ijbn.onrender.com/api/admin/customers/${id}/status`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             fetchCustomers();
@@ -284,7 +284,7 @@ const AdminDashboard = () => {
     const handleDeleteCustomer = async (id) => {
         if (!window.confirm("Are you sure? This will delete all their bookings too.")) return;
         try {
-            await axios.delete(`http://localhost:5000/api/admin/customers/${id}`, {
+            await axios.delete(`https://offerly-ijbn.onrender.com/api/admin/customers/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             fetchCustomers(); fetchStats();
@@ -304,7 +304,7 @@ const AdminDashboard = () => {
     const handleUpdateBooking = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:5000/api/admin/bookings/${editBooking._id}`, bookingForm, {
+            await axios.put(`https://offerly-ijbn.onrender.com/api/admin/bookings/${editBooking._id}`, bookingForm, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setEditBooking(null); fetchBookings();
@@ -314,7 +314,7 @@ const AdminDashboard = () => {
     const handleCreateNotification = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:5000/api/admin/notifications", notificationForm, {
+            await axios.post("https://offerly-ijbn.onrender.com/api/admin/notifications", notificationForm, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             alert("Sent!");
@@ -326,7 +326,7 @@ const AdminDashboard = () => {
     const handleDeleteNotification = async (id) => {
         if (!window.confirm("Delete?")) return;
         try {
-            await axios.delete(`http://localhost:5000/api/admin/notifications/${id}`, {
+            await axios.delete(`https://offerly-ijbn.onrender.com/api/admin/notifications/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             fetchAdminNotifications();
@@ -336,12 +336,12 @@ const AdminDashboard = () => {
     const handleReplySupport = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:5000/api/support/admin/${selectedTicket._id}/reply`, { message: supportReply }, {
+            await axios.put(`https://offerly-ijbn.onrender.com/api/support/admin/${selectedTicket._id}/reply`, { message: supportReply }, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setSupportReply("");
             fetchTickets();
-            const { data } = await axios.get("http://localhost:5000/api/support/admin", {
+            const { data } = await axios.get("https://offerly-ijbn.onrender.com/api/support/admin", {
                 headers: { Authorization: `Bearer ${token}` }
             });
             const updated = data.find(t => t._id === selectedTicket._id);
@@ -352,7 +352,7 @@ const AdminDashboard = () => {
     const handleCloseTicket = async (id) => {
         if (!window.confirm("Close this ticket?")) return;
         try {
-            await axios.put(`http://localhost:5000/api/support/admin/${id}/reply`, { message: "System: Ticket closed by admin." }, {
+            await axios.put(`https://offerly-ijbn.onrender.com/api/support/admin/${id}/reply`, { message: "System: Ticket closed by admin." }, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             fetchTickets();

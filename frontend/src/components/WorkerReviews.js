@@ -38,10 +38,10 @@ export default function WorkerReviews() {
     const fetchReviews = useCallback(async () => {
         try {
             if (!user) return;
-            const profRes = await axios.get(`http://localhost:5000/api/workers/profile?userId=${user.id}`, { headers: { Authorization: `Bearer ${token}` } });
+            const profRes = await axios.get(`https://offerly-ijbn.onrender.com/api/workers/profile?userId=${user.id}`, { headers: { Authorization: `Bearer ${token}` } });
             setAverage(profRes.data?.averageRating?.toFixed(1) || "0.0");
 
-            const res = await axios.get(`http://localhost:5000/api/reviews/${user.id}`);
+            const res = await axios.get(`https://offerly-ijbn.onrender.com/api/reviews/${user.id}`);
             setReviews(res.data);
         } catch (err) { console.error("Failed to fetch reviews:", err); }
     }, [user, token]);

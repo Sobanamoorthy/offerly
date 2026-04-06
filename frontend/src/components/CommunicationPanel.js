@@ -18,7 +18,7 @@ export default function CommunicationPanel({ booking, userRole }) {
   const fetchCommData = React.useCallback(async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/communication/${booking._id}`,
+        `https://offerly-ijbn.onrender.com/api/communication/${booking._id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setCommData(res.data.communication);
@@ -79,7 +79,7 @@ export default function CommunicationPanel({ booking, userRole }) {
       setLoading(true);
       setError(null);
       await axios.post(
-        `http://localhost:5000/api/communication/${booking._id}/request-call`,
+        `https://offerly-ijbn.onrender.com/api/communication/${booking._id}/request-call`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -96,7 +96,7 @@ export default function CommunicationPanel({ booking, userRole }) {
       setLoading(true);
       setError(null);
       await axios.post(
-        `http://localhost:5000/api/communication/${booking._id}/respond-call`,
+        `https://offerly-ijbn.onrender.com/api/communication/${booking._id}/respond-call`,
         { action },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -118,7 +118,7 @@ export default function CommunicationPanel({ booking, userRole }) {
        setLoading(true);
        setError(null);
        await axios.post(
-         `http://localhost:5000/api/communication/${booking._id}/verify-otp`,
+         `https://offerly-ijbn.onrender.com/api/communication/${booking._id}/verify-otp`,
          { otp: startJobOTP.trim() },
          { headers: { Authorization: `Bearer ${token}` } }
        );
@@ -142,7 +142,7 @@ export default function CommunicationPanel({ booking, userRole }) {
       setLoading(true);
       setError(null);
       await axios.post(
-        `http://localhost:5000/api/communication/${booking._id}/end-call`,
+        `https://offerly-ijbn.onrender.com/api/communication/${booking._id}/end-call`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

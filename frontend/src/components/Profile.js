@@ -68,7 +68,7 @@ const Profile = () => {
 
     const fetchProfile = useCallback(async () => {
         try {
-            const res = await axios.get(`http://localhost:5000/api/workers/profile?userId=${user.id}`, {
+            const res = await axios.get(`https://offerly-ijbn.onrender.com/api/workers/profile?userId=${user.id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             if (res.data) {
@@ -152,7 +152,7 @@ const Profile = () => {
                 experience: Number(profile.experience)
             };
 
-            await axios.post("http://localhost:5000/api/workers/profile", updatedProfile, {
+            await axios.post("https://offerly-ijbn.onrender.com/api/workers/profile", updatedProfile, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setMessage("✅ Profile updated successfully!");

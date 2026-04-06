@@ -38,7 +38,7 @@ export default function WorkerCalendar() {
     useEffect(() => {
         const fetchBookings = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/api/bookings/worker", { headers: { Authorization: `Bearer ${token}` } });
+                const res = await axios.get("https://offerly-ijbn.onrender.com/api/bookings/worker", { headers: { Authorization: `Bearer ${token}` } });
                 const active = res.data.filter(b => ["accepted", "in progress"].includes(b.status));
                 const dates = [];
                 active.forEach(job => {

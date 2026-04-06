@@ -62,7 +62,7 @@ const CustomerTable = () => {
 
     const fetchCustomers = useCallback(async () => {
         try {
-            const res = await axios.get("http://localhost:5000/api/admin/customers", {
+            const res = await axios.get("https://offerly-ijbn.onrender.com/api/admin/customers", {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setCustomers(res.data);
@@ -79,7 +79,7 @@ const CustomerTable = () => {
     const handleToggleStatus = async (id, currentStatus) => {
         if (!window.confirm(`Are you sure you want to ${currentStatus ? 'deactivate' : 'activate'} this user?`)) return;
         try {
-            await axios.put(`http://localhost:5000/api/admin/customers/${id}/status`, {}, {
+            await axios.put(`https://offerly-ijbn.onrender.com/api/admin/customers/${id}/status`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             fetchCustomers();
@@ -89,7 +89,7 @@ const CustomerTable = () => {
     const handleDeleteCustomer = async (id) => {
         if (!window.confirm("Delete?")) return;
         try {
-            await axios.delete(`http://localhost:5000/api/admin/customers/${id}`, {
+            await axios.delete(`https://offerly-ijbn.onrender.com/api/admin/customers/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             fetchCustomers();
@@ -109,7 +109,7 @@ const CustomerTable = () => {
     const handleUpdateCustomer = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:5000/api/admin/customers/${editCustomer._id}`, editForm, {
+            await axios.put(`https://offerly-ijbn.onrender.com/api/admin/customers/${editCustomer._id}`, editForm, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setEditCustomer(null); fetchCustomers();

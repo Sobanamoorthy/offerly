@@ -45,7 +45,7 @@ const BookingModal = ({ worker, onClose, onSuccess }) => {
         }
 
         try {
-            await axios.post("http://localhost:5000/api/bookings/create", {
+            await axios.post("https://offerly-ijbn.onrender.com/api/bookings/create", {
                 workerId: worker.userId._id,
                 ...formData
             }, {

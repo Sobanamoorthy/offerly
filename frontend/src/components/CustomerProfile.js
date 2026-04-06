@@ -24,7 +24,7 @@ const CustomerProfile = () => {
 
     const fetchProfile = useCallback(async () => {
         try {
-            const res = await axios.get("http://localhost:5000/api/customers/profile", {
+            const res = await axios.get("https://offerly-ijbn.onrender.com/api/customers/profile", {
                 headers: { Authorization: `Bearer ${token}` }
             });
             if (res.data) {
@@ -48,7 +48,7 @@ const CustomerProfile = () => {
         e.preventDefault();
         setLoading(true);
         try {
-            await axios.post("http://localhost:5000/api/customers/profile", profile, {
+            await axios.post("https://offerly-ijbn.onrender.com/api/customers/profile", profile, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setMessage("✅ Profile updated successfully!");

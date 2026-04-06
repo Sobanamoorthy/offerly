@@ -50,7 +50,7 @@ const WorkerProfileModal = ({ worker, onClose }) => {
             try {
                 const workerUserId = worker.userId?._id || worker.userId;
                 const token = localStorage.getItem("token");
-                const res = await axios.get(`http://localhost:5000/api/workers/profile?userId=${workerUserId}`, {
+                const res = await axios.get(`https://offerly-ijbn.onrender.com/api/workers/profile?userId=${workerUserId}`, {
                     headers: token ? { Authorization: `Bearer ${token}` } : {}
                 });
                 setProfile(res.data);

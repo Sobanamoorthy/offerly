@@ -24,7 +24,7 @@ export default function CustomerDashboardMain({ activeTab: propTab, onNavigate: 
         setLoading(true);
         setError(null);
         try {
-            const res = await axios.get("http://localhost:5000/api/bookings/customer", {
+            const res = await axios.get("https://offerly-ijbn.onrender.com/api/bookings/customer", {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setBookings(res.data);

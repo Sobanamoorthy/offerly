@@ -16,7 +16,7 @@ export default function WorkerSupport() {
     const fetchTickets = async () => {
         try {
             const token = localStorage.getItem("token");
-            const res = await axios.get("http://localhost:5000/api/support", {
+            const res = await axios.get("https://offerly-ijbn.onrender.com/api/support", {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setTickets(res.data);
@@ -35,7 +35,7 @@ export default function WorkerSupport() {
 
         try {
             const token = localStorage.getItem("token");
-            await axios.post("http://localhost:5000/api/support", {
+            await axios.post("https://offerly-ijbn.onrender.com/api/support", {
                 subject,
                 description
             }, {
@@ -58,7 +58,7 @@ export default function WorkerSupport() {
 
         try {
             const token = localStorage.getItem("token");
-            await axios.post(`http://localhost:5000/api/support/${ticketId}/reply`, { message: text }, {
+            await axios.post(`https://offerly-ijbn.onrender.com/api/support/${ticketId}/reply`, { message: text }, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setReplyTexts(prev => ({ ...prev, [ticketId]: "" }));
@@ -71,7 +71,7 @@ export default function WorkerSupport() {
     const handleClose = async (ticketId) => {
         try {
             const token = localStorage.getItem("token");
-            await axios.put(`http://localhost:5000/api/support/${ticketId}/close`, {}, {
+            await axios.put(`https://offerly-ijbn.onrender.com/api/support/${ticketId}/close`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             fetchTickets();
