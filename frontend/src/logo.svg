@@ -1,0 +1,48 @@
+<svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="swsh" x1="0" y1="0.5" x2="1" y2="0.6">
+      <stop offset="0%" stop-color="#3AC1F2" />
+      <stop offset="100%" stop-color="#14B883" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Shadow/Ground -->
+  <ellipse cx="50" cy="72" rx="20" ry="1.5" fill="#CBD5E1" opacity="0.5" />
+  
+  <!-- Gradient Swoosh -->
+  <path d="M15 35 C10 55 35 75 65 65 C85 55 95 30 70 15" fill="none" stroke="url(#swsh)" stroke-width="3" stroke-linecap="round" opacity="0.9" />
+
+  <!-- Person -->
+  <g fill="#1D3557">
+    <!-- Head -->
+    <circle cx="52" cy="18" r="6" />
+    
+    <!-- Body & Leaping Pose -->
+    <path d="M52 25 
+             C48 25, 42 28, 40 35 
+             L25 55 
+             C23 58, 25 62, 28 61 
+             L45 50 
+             L55 35 Z" /> <!-- Front Leg & Torso -->
+             
+    <path d="M55 32 
+             L75 50 
+             C78 52, 82 50, 80 47 
+             L68 35 
+             Z" /> <!-- Back Leg -->
+             
+    <!-- Arms -->
+    <path d="M48 26 L35 35 L38 39 L51 30 Z" /> <!-- Left Arm -->
+    <path d="M54 26 L65 18 L68 22 L57 30 Z" /> <!-- Right Arm -->
+    
+    <!-- Briefcase detail -->
+    <g transform="translate(64, 12) rotate(35)">
+      <rect width="10" height="15" rx="2.5" />
+      <rect x="2" y="1.5" width="6" height="0.8" fill="white" opacity="0.4" />
+      <rect x="2" y="12" width="6" height="0.6" fill="white" opacity="0.2" />
+    </g>
+    
+    <!-- Tie -->
+    <path d="M52 26 L52 35 L49 32 Z" fill="white" />
+  </g>
+</svg>

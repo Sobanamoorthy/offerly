@@ -1,0 +1,17 @@
+{
+    "welcome": "Welcome",
+    "dashboard": "Dashboard",
+    "logout": "Logout",
+    "available_workers": "Available Workers",
+    "search_placeholder": "Filter by skill...",
+    "search": "Search",
+    "search_near_me": "📍 Search Near Me",
+    "no_workers": "No workers found",
+    "book_now": "Book Now",
+    "skills": "Skills",
+    "experience": "Experience",
+    "location": "Location",
+    "salary": "Daily Salary",
+    "kaimama": "Blue Collar",
+    "years": "years"
+}
