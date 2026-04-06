@@ -31,13 +31,6 @@ const BookingModal = ({ worker, onClose, onSuccess }) => {
         setLoading(true);
         setError("");
 
-        if (!user?.mobile) {
-            alert("Please provide your mobile number in your profile before booking.");
-            onClose();
-            navigate("/dashboard?tab=profile");
-            return;
-        }
-
         if (new Date(formData.startDateTime) >= new Date(formData.endDateTime)) {
             setError("End time must be after start time.");
             setLoading(false);
@@ -62,6 +55,8 @@ const BookingModal = ({ worker, onClose, onSuccess }) => {
             setLoading(false);
         }
     };
+
+
 
     const inputStyle = {
         width: "100%",
@@ -101,8 +96,8 @@ const BookingModal = ({ worker, onClose, onSuccess }) => {
                 border: "1px solid #E5E7EB",
                 position: "relative"
             }}>
-                <button 
-                    onClick={onClose} 
+                <button
+                    onClick={onClose}
                     style={{ position: "absolute", right: "20px", top: "20px", background: "#EDE9FF", border: "none", width: "36px", height: "36px", borderRadius: "50%", cursor: "pointer", display: "flex", justifyContent: "center", alignItems: "center", color: "#7C6FCD", transition: "all 0.2s" }}
                     onMouseOver={(e) => { e.currentTarget.style.background = "#D4CEEF"; e.currentTarget.style.transform = "rotate(90deg)"; }}
                     onMouseOut={(e) => { e.currentTarget.style.background = "#EDE9FF"; e.currentTarget.style.transform = "rotate(0deg)"; }}
@@ -260,8 +255,8 @@ const BookingModal = ({ worker, onClose, onSuccess }) => {
                                 transition: "all 0.2s",
                                 boxShadow: "0 4px 12px rgba(124, 111, 205, 0.2)"
                             }}
-                            onMouseOver={(e) => { if(!loading) { e.currentTarget.style.background = "#6A5EC0"; e.currentTarget.style.transform = "translateY(-2px)"; } }}
-                            onMouseOut={(e) => { if(!loading) { e.currentTarget.style.background = "#7C6FCD"; e.currentTarget.style.transform = "translateY(0)"; } }}
+                            onMouseOver={(e) => { if (!loading) { e.currentTarget.style.background = "#6A5EC0"; e.currentTarget.style.transform = "translateY(-2px)"; } }}
+                            onMouseOut={(e) => { if (!loading) { e.currentTarget.style.background = "#7C6FCD"; e.currentTarget.style.transform = "translateY(0)"; } }}
                         >
                             {loading ? "Processing..." : "Confirm Booking Offer"}
                         </button>
