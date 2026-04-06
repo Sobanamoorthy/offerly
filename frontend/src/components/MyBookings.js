@@ -89,6 +89,13 @@ const MyBookings = () => {
 
     useEffect(() => {
         fetchBookings();
+
+        // Every 10 seconds auto refresh
+        const interval = setInterval(() => {
+            fetchBookings();
+        }, 10000);
+
+        return () => clearInterval(interval);
     }, [fetchBookings]);
 
     const [hoveredIdx, setHoveredIdx] = useState(-1);
@@ -111,7 +118,7 @@ const MyBookings = () => {
                 <div style={{ width: "6px", height: "32px", background: "#7C6FCD", borderRadius: "3px" }}></div>
                 Service Booking History
             </h3>
-            
+
             {bookings.length === 0 ? (
                 <div style={{ textAlign: "center", padding: "80px 40px", color: "#9CA3AF", background: "#FFFFFF", borderRadius: "24px", border: "1px solid #E5E7EB", boxShadow: "0 4px 12px rgba(0,0,0,0.03)" }}>
                     <div style={{ marginBottom: "20px", opacity: 0.25 }}><Calendar size={64} strokeWidth={1} /></div>
@@ -142,7 +149,7 @@ const MyBookings = () => {
                                         <span style={{ color: "#6B6B8A", fontSize: "13px", fontWeight: "600", display: "flex", alignItems: "center", gap: "8px" }}><Zap size={14} color="#7C6FCD" /> Priority Level</span>
                                         <span style={{ fontWeight: "800", fontSize: "13px", background: b.urgencyType === "Emergency" ? "#FEE2E2" : "#EDE9FF", color: b.urgencyType === "Emergency" ? "#FF6B6B" : "#7C6FCD", padding: "2px 8px", borderRadius: "6px" }}>{b.urgencyType}</span>
                                     </div>
-                                    
+
                                     <div style={{ background: "#F5F3FF", padding: "16px", borderRadius: "16px", border: "1px solid #E8E4FF" }}>
                                         <div style={{ color: "#7C6FCD", fontSize: "11px", fontWeight: "800", marginBottom: "8px", textTransform: "uppercase", display: "flex", alignItems: "center", gap: "6px" }}><Clock size={12} /> Service Timeline</div>
                                         <div style={{ fontSize: "13px", color: "#2D2B55", fontWeight: "700", lineHeight: "1.6" }}>
@@ -190,11 +197,11 @@ const MyBookings = () => {
                                             <span style={{ fontSize: "32px", color: "#2D2B55", fontWeight: "900", letterSpacing: "8px", fontFamily: "monospace" }}>{b.startJobOTP || "----"}</span>
                                         </div>
                                         <div style={{ display: "flex", gap: "10px", marginTop: "12px" }}>
-                                            <button 
-                                                onClick={(e) => { 
-                                                    e.stopPropagation(); 
-                                                    navigator.clipboard.writeText(b.startJobOTP); 
-                                                    alert("OTP copied!"); 
+                                            <button
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    navigator.clipboard.writeText(b.startJobOTP);
+                                                    alert("OTP copied!");
                                                 }}
                                                 style={{ flex: 1, padding: "10px", background: "#FFFFFF", color: "#7C6FCD", border: "1.5px solid #7C6FCD", borderRadius: "12px", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", fontWeight: "800", fontSize: "12px", transition: "all 0.2s" }}
                                             >
@@ -204,13 +211,13 @@ const MyBookings = () => {
                                         <p style={{ margin: "14px 0 0 0", fontSize: "11px", color: "#6B6B8A", fontWeight: "600", lineHeight: "1.5", textAlign: "center" }}>Verify this with the professional when they arrive at your location.</p>
                                     </div>
                                 )}
-                                
+
                                 {b.status === "in progress" && (
                                     <div style={{ textAlign: "center", padding: "14px", background: "#F5F3FF", borderRadius: "16px", border: "1px solid #E8E4FF", fontSize: "13px", color: "#7C6FCD", fontWeight: "800", display: "flex", justifyContent: "center", alignItems: "center", gap: "8px" }}>
                                         <Activity size={18} className="animate-pulse" /> Service is Underway
                                     </div>
                                 )}
-                                
+
                                 {b.status === "pending" && (
                                     <div style={{ textAlign: "center", padding: "14px", background: "#F5F3FF", borderRadius: "16px", border: "1px solid #E8E4FF", fontSize: "13px", color: "#7C6FCD", fontWeight: "700", display: "flex", justifyContent: "center", alignItems: "center", gap: "8px" }}>
                                         <Clock size={18} /> Assigning Professional...
